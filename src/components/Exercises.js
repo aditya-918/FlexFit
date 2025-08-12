@@ -13,8 +13,9 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
 
-  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
-
+  // const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+  const currentExercises = Array.isArray(exercises)  ? exercises.slice(indexOfFirstExercise, indexOfLastExercise)
+  : [];
   const paginate = (e, value) => {
     setCurrentPage(value);
     window.scrollTo({ top: 1800, behavior: 'smooth'})
